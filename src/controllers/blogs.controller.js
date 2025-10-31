@@ -12,7 +12,7 @@ const createBlogs = {
             sort_description: Joi.string().trim().required(),
             long_description: Joi.string().trim().required(),
             date: Joi.date().required(),
-            // image: Joi.string().allow(),
+            image: Joi.string().allow(),
             status: Joi.string().valid('Active', 'Inactive').optional(),
         }),
     },
@@ -64,7 +64,7 @@ const getAllBlogs = {
 
         if (status) query.status = status;
         if (search) query.title = { $regex: search, $options: "i" };
-
+        
         await handlePagination(Blogs, req, res, query);
     },
 };
@@ -99,7 +99,7 @@ const updateBlogs = {
             sort_description: Joi.string().trim().required(),
             long_description: Joi.string().trim().required(),
             date: Joi.date().required(),
-            // image: Joi.string(),
+            image: Joi.string(),
             status: Joi.string().valid('Active', 'Inactive').optional(),
         }),
     },

@@ -1,6 +1,5 @@
 const express = require('express');
 const authRoute = require('./auth.route');
-const holidayRoute = require('./holiday.route');
 const categoryRoute = require('./category.route');
 const questionRoute = require('./question.route');
 const blogsRoute = require('./blogs.route');
@@ -9,6 +8,7 @@ const liveRoute = require('./livecourses.route');
 const productRoute = require('./product.route');
 const cartRoute = require('./cart.route');
 const orderRoute = require('./order.route')
+const examListRoute = require('./examCategory.route');
 
 const router = express.Router();
 
@@ -16,10 +16,6 @@ const defaultRoutes = [
   {
     path: '/auth',
     route: authRoute,
-  },
-  {
-    path: '/holiday', 
-    route: holidayRoute,
   },
   {
     path: '/category', 
@@ -52,7 +48,11 @@ const defaultRoutes = [
   {
     path:'/order',
     route: orderRoute
-  }
+  },
+  {
+    path: '/examlist', 
+    route: examListRoute,
+  },
 ];
 
 
